@@ -38,7 +38,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
-  capitalize?:boolean
+  capitalize?:boolean // se agrega la propiedad para definir cual se capitaliza y cual no (primera letra en mayuscula)
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

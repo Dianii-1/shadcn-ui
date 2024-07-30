@@ -28,7 +28,7 @@ const badgeVariants = cva(
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {
-      capitalize?:boolean
+      capitalize?:boolean // se agrega propiedad para capitalizar 
     }
 
 function Badge({ className, variant, capitalize=false, ...props }: BadgeProps) {
