@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
+import Autoplay from 'embla-carousel-autoplay';
 import {
   Carousel,
   CarouselContent,
@@ -12,6 +13,7 @@ export default function Page() {
     <div className="w-full flex justify-center">
       <Carousel 
       className="w-full max-w-xs"
+      autoPlay={1000} // 1 segundo
       opts={{
        // dragFree:true esto se utiliza para que al deslizar el mouse no se pase al siguiente item sino que dezlice el item
       loop:true

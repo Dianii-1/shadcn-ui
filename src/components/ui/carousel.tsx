@@ -5,6 +5,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
+import Autoplay from "embla-carousel-autoplay"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -18,6 +19,7 @@ type CarouselProps = {
   opts?: CarouselOptions
   plugins?: CarouselPlugin
   orientation?: "horizontal" | "vertical"
+  autoPlay?:number
   setApi?: (api: CarouselApi) => void
 }
 
@@ -54,10 +56,20 @@ const Carousel = React.forwardRef<
       plugins,
       className,
       children,
+      autoPlay,
       ...props
     },
     ref
   ) => {
+
+    // valida si llega autoplay y a suvez si hay plugins si hay que las deje 
+    //si no que las coloque como un array vacio
+    // a su vez incluye el delay que sera los segundos para que pase a la siguiente tarjeta
+    if(autoPlay){
+      plugins = plugins ?? []
+      plugins.push(Autoplay({delay: autoPlay}))
+    }
+
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
